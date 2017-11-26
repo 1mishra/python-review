@@ -28,7 +28,7 @@ print(all_tickers)
 
 
 
-# 3a Take today's date and 24 month old date
+# 3 Take today's date and 24 month old date
 end_date = date.today()
 start_date = date.today() + relativedelta(months=-24)
 print("Start date: {}\nEnd date: {}".format(start_date, end_date))
@@ -53,13 +53,10 @@ adj_close = adj_close.fillna(method='ffill')
 print(type(adj_close))
 adj_close.to_csv('adjclose.csv', sep=' ')
 
-# Calculating the the correlation by generating a time series
-# print(adj_close['all_tickers[2]'].corr(adj_close['all_tickers[1]']))
+# #SIMPLE CORRELATION
+corrdf = pd.DataFrame(adj_close.corr(method = 'spearman'))
 
-
-
-# Creating a correlation matrix of all the stock tickers
-correlation_matrix = np.corrcoef(percentage_change_list________)
+# print the value from column of correlation matrix which is smaller than 1.
 
 
 # Visualize data here usign ggplot
